@@ -10,7 +10,7 @@ import { existsSync } from 'fs'
 const require = createRequire(import.meta.url)
 
 // Firebase Admin — ключі з serviceAccountKey.json
-const serviceAccount = require('./serviceAccountKey.json')
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)
 initializeApp({ credential: cert(serviceAccount) })
 
 const db = getFirestore()
